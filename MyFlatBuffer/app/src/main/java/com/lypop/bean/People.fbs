@@ -1,0 +1,23 @@
+namespace com.lypop.bean;
+
+table People{
+	name: string;
+	age: int;
+	sex: string;
+	action: [Action];
+}
+
+table Action{
+    isHead: bool;
+    isRun: bool;
+    isLove: bool;
+    lovePeople: [LoveWoman];
+}
+
+table LoveWoman{
+    name: string;
+    age: int;
+    isBeatiful: bool;
+}
+
+root_type People;
