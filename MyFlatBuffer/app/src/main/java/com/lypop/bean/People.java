@@ -2,6 +2,9 @@
 
 package com.lypop.bean;
 
+import com.google.flatbuffers.FlatBufferBuilder;
+import com.google.flatbuffers.Table;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 

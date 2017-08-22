@@ -1,9 +1,12 @@
 namespace com.lypop.bean;
 
+enum FriendshipStatus: int {Friend = 1, NotFriend}
+
 table People{
 	name: string;
 	age: int;
 	sex: string;
+	friendshipStatus: FriendshipStatus = Friend;
 	action: [Action];
 }
 
