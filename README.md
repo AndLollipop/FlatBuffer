@@ -9,7 +9,7 @@
 3. 灵活：数据能够向前向后兼容，并且能够灵活控制你的数据结构
 4. 很少的代码侵入性：使用少量的生成的代码即可实现
 5. 强数据类型，易于使用，跨平台，几乎语言无关
-![image](https://github.com/AndLollipop/FlatBuffer/img01.png)
+![image](https://github.com/AndLollipop/FlatBuffer/blob/master/img01.png)
 在做 Android 开发的时候，JSON 是最常用的数据序列化技术。我们知道，JSON 的可读性很强，但是序列化和反序列化性能却是最差的。解析的时候，JSON 解析器首先，需要在内存中初始化一个对应的数据结构，这个事件经常会消耗 100ms ~ 200ms2；解析过程中，要产生大量的临时变量，造成 Java 虚拟机的 GC 和内存抖动，解析 20KB 的数据，大概会消耗 100KB 的临时内存。FlatBuffers 就解决了这些问题。
 
 使用方法：
@@ -40,14 +40,14 @@ IDL数据结构：
 	  isRun: bool;//定义一个boolean类型
 	}
 这样我们就写好了IDL结构，这样一看突然发现有点像Kotlin语言有木有。。。下面是我所生成相应的java类
-![image](https://github.com/AndLollipop/FlatBuffer/img2.png)
+![image](https://github.com/AndLollipop/FlatBuffer/blob/master/img2.png)
 
 下面是我生成的相应的java文件，最后我们要做的便是对数据进行序列化和反序列化的操作了。
 
 在介绍序列化和反序列化的操作之前我们为了更好的理解，先来介绍一下相应的基本原理
 
 正如官方文档的介绍，FlatBuffers就像它的名字所表示的一样，就是把结构化的对象，用一个扁平化的缓冲区保存，简单的来说就是把内存对象数据保存到一个一维的数组中，可以对照以下的图片：
-![image](https://github.com/AndLollipop/FlatBuffer/img3.png)
+![image](https://github.com/AndLollipop/FlatBuffer/blob/master/img3.png)
 可见，FlatBuffers 保存在一个 byte 数组中，有一个“支点”指针（pivot point）以此为界，存储的内容分为两个部分：元数据和数据内容。
 
 其中元数据部分就是数据在前面，其长度等于对象中的字段数量，每个 byte 保存对应字段内容在数组中的索引（从支点位置开始计算）。
